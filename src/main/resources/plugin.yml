@@ -1,0 +1,30 @@
+name: Thunder_Core
+main: ThunderCore.ThunderCore
+version: 1.0.0
+api-version: 1.19
+author: RedThunderSpartan
+description: Core Plugin for my server
+
+commands:
+  ban:
+    usage: <ipban/ban (player) (time d|h|m) (reason)>
+    description: Command for staff members to ban players.
+  build:
+    usage: </build>
+    aliases:
+      - "b"
+    description: Command for staff members to build on worlds with world protection.
+  mute:
+    usage: </mute (player)>
+    description: Command for staff members to mute players.
+    aliases:
+      - "unmute"
+  mutechat:
+    usage: </mutechat>
+    description: Command for staff members to mute the chat for all players other than staff.
+  vanish:
+    usage: </vanish>
+    description: Command for staff members to vanish and appear offline.
+  getvanished:
+    usage: </getvanished>
+    description: Command for staff members to see who is vanished.
