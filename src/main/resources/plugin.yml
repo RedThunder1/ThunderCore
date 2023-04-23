@@ -28,3 +28,6 @@ commands:
   getvanished:
     usage: </getvanished>
     description: Command for staff members to see who is vanished.
+  party:
+    usage: </party (help to see all available commands)>
+    description: Allows players to form parties to make playing with friends easier.

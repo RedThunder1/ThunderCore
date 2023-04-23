@@ -1,7 +1,9 @@
 package ThunderCore;
 
 import ThunderCore.Commands.LobbyCommand;
+import ThunderCore.Commands.PartyCommand;
 import ThunderCore.Commands.StaffCommands.*;
+import ThunderCore.Events.ChatListener;
 import ThunderCore.Events.PlayerJoin;
 import ThunderCore.Events.PlayerLeave;
 import ThunderCore.Events.WorldProtection;
@@ -11,7 +13,7 @@ import ThunderCore.Managers.ThunderManager;
 import ThunderCore.Utilities.AnnouncementMessages;
 import ThunderCore.Utilities.Time;
 import net.kyori.adventure.text.Component;
-import org.bukkit.ChatColor;
+import org.bukkit.*;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -33,12 +35,13 @@ public class ThunderCore extends JavaPlugin {
     // Priority:
     //      Staff Commands
     //      Player commands
+    //      Testing
+    //      Party system
     // Secondary:
     //      Test for bugs once a server is set up
     //      Games
-    //      Party system
     //      Friend system
-    //      Timed Ban and Mute
+    //      Timed Mute
 
 
     @Override
@@ -53,12 +56,13 @@ public class ThunderCore extends JavaPlugin {
     }
 
     @Override
-    public void onLoad() {
-        greenMsg("LOADED!");
-    }
+    public void onLoad() { greenMsg("LOADED!"); }
 
     @Override
     public void onDisable() {
+        for(ThunderManager thunderManager : managers) {
+            thunderManager.save();
+        }
         redMsg("DISABLED!");
     }
 
@@ -76,6 +80,7 @@ public class ThunderCore extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("mute")).setExecutor(new MuteCommand());
         Objects.requireNonNull(this.getCommand("mute")).setAliases(List.of(muteAlias));
         Objects.requireNonNull(this.getCommand("getvanished")).setExecutor(new GetVanishedCommand());
+        Objects.requireNonNull(this.getCommand("party")).setExecutor(new PartyCommand());
         greenMsg("Commands LOADED!");
     }
 
@@ -84,6 +89,7 @@ public class ThunderCore extends JavaPlugin {
         pluginManager.registerEvents(new PlayerJoin(), this);
         pluginManager.registerEvents(new PlayerLeave(), this);
         pluginManager.registerEvents(new WorldProtection(), this);
+        pluginManager.registerEvents(new ChatListener(), this);
         greenMsg("Events LOADED!");
     }
 
@@ -103,21 +109,18 @@ public class ThunderCore extends JavaPlugin {
     }
 
     public void loadWorlds() {
-
+        for (World world : Bukkit.getWorlds()) {
+            WorldCreator worldCreator = new WorldCreator(world.getName());
+            worldCreator.createWorld();
+        }
         greenMsg("Worlds LOADED!");
     }
 
-    public void greenMsg(String text) {
-        console.sendMessage(Component.text(thunderName + ChatColor.GREEN + text));
-    }
+    public void greenMsg(String text) { console.sendMessage(Component.text(thunderName + ChatColor.GREEN + text)); }
 
-    public void redMsg(String text) {
-        console.sendMessage(Component.text(thunderName + ChatColor.RED + text));
-    }
+    public void redMsg(String text) { console.sendMessage(Component.text(thunderName + ChatColor.RED + text)); }
 
-    public void yellowMsg(String text) {
-        console.sendMessage(Component.text(thunderName + ChatColor.YELLOW + text));
-    }
+    public void yellowMsg(String text) { console.sendMessage(Component.text(thunderName + ChatColor.YELLOW + text)); }
 
     public boolean isStaff(Player player) {
         if (RankManager.get().fakePlayers.contains(RankManager.get().getFakePlayer(player))) {
