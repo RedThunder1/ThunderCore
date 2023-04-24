@@ -31,3 +31,12 @@ commands:
   party:
     usage: </party (help to see all available commands)>
     description: Allows players to form parties to make playing with friends easier.
+  worldcreate:
+    usage: </worldcreate (world name) (type)>
+    description: Allows staff to create new worlds
+  worlddelete:
+    usage: </worlddelete (world name)>
+    description: Allows staff to delete worlds
+  worldtp:
+    usage: </worldtp (world name)>
+    description: Allows staff to tp between worlds

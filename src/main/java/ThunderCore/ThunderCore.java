@@ -3,6 +3,9 @@ package ThunderCore;
 import ThunderCore.Commands.LobbyCommand;
 import ThunderCore.Commands.PartyCommand;
 import ThunderCore.Commands.StaffCommands.*;
+import ThunderCore.Commands.StaffCommands.Worlds.CreateWorldCommand;
+import ThunderCore.Commands.StaffCommands.Worlds.DeleteWorldCommand;
+import ThunderCore.Commands.StaffCommands.Worlds.TpWorldCommand;
 import ThunderCore.Events.ChatListener;
 import ThunderCore.Events.PlayerJoin;
 import ThunderCore.Events.PlayerLeave;
@@ -81,6 +84,9 @@ public class ThunderCore extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("mute")).setAliases(List.of(muteAlias));
         Objects.requireNonNull(this.getCommand("getvanished")).setExecutor(new GetVanishedCommand());
         Objects.requireNonNull(this.getCommand("party")).setExecutor(new PartyCommand());
+        Objects.requireNonNull(this.getCommand("worldcreate")).setExecutor(new CreateWorldCommand());
+        Objects.requireNonNull(this.getCommand("worlddelete")).setExecutor(new DeleteWorldCommand());
+        Objects.requireNonNull(this.getCommand("worldtp")).setExecutor(new TpWorldCommand());
         greenMsg("Commands LOADED!");
     }
 
