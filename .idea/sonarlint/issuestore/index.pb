@@ -25,8 +25,6 @@ Asrc/main/java/ThunderCore/Commands/StaffCommands/MuteCommand.java,4/d/4d88b73f
 0src/main/java/ThunderCore/Events/PlayerJoin.java,7/2/72c340c54414da0a198f0a6654522d818a99a320
 a
 1src/main/java/ThunderCore/Events/PlayerLeave.java,0/d/0dc6bb9de3eeb96cf03acc83d072a3bafd81943d
-7
-pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 f
 6src/main/java/ThunderCore/Managers/ThunderManager.java,a/4/a41abb592eea6e588f2dd6cefa1a82541f9aaaf3
 s
@@ -35,8 +33,6 @@ e
 5src/main/java/ThunderCore/Events/WorldProtection.java,8/f/8fac753e258ea95cfac95b5fd8c6cfbcbef4c015
 i
 9src/main/java/ThunderCore/Managers/RankManager/Ranks.java,e/9/e97e877fed1f6967cd697dedf2203ec75e8e1f13
-o
-?src/main/java/ThunderCore/Managers/RankManager/RankManager.java,6/f/6f4a5c6682242516f4c11114bc4fe2fc459ebefc
 m
 =src/main/java/ThunderCore/Utilities/AnnouncementMessages.java,b/8/b85b8851f30fc790b9f85b1549053683568f1b48
 a
