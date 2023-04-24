@@ -111,18 +111,15 @@ public class RankManager implements ThunderManager {
     @Override
     public void load() {
         try {
-            File folder = new File("FakePlayers/");
+            File folder = new File("ThunderCore/FakePlayers/");
             File[] listOfFiles = folder.listFiles();
             for (File file : Objects.requireNonNull(listOfFiles)) {
                 String fileContent = GSONManager.readFile(file);
                 this.fakePlayers.add(gson.fromJson(fileContent, FakePlayer.class));
             }
-
-
             this.fakePlayers = gson.fromJson(Objects.requireNonNull(GSONManager.readFile(new File("PlayerRanks.json"))), fakePlayers.getClass());
         } catch(NullPointerException e) {
             ThunderCore.get().yellowMsg("THERE ARE NO PLAYER FILES!");
-
         }
         ThunderCore.get().greenMsg("Ranks loaded!");
     }
@@ -131,7 +128,7 @@ public class RankManager implements ThunderManager {
     public void save() {
         for (FakePlayer fakePlayer : this.fakePlayers) {
             String id = fakePlayer.getUUID().toString();
-            GSONManager.writeFile(new File("FakePlayers/" + id + ".json"), gson.toJson(fakePlayer));
+            GSONManager.writeFile(new File("ThunderCore/FakePlayers/" + id + ".json"), gson.toJson(fakePlayer));
         }
         ThunderCore.get().greenMsg("Saved Player Ranks!");
     }

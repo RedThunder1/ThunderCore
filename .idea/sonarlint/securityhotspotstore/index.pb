@@ -31,8 +31,6 @@ p
 Q.idea/sonarlint/securityhotspotstore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,1/0/10a03f31c4dce92cb371e761ce9429428bb6c176
 i
 9src/main/java/ThunderCore/Managers/RankManager/Ranks.java,e/9/e97e877fed1f6967cd697dedf2203ec75e8e1f13
-o
-?src/main/java/ThunderCore/Managers/RankManager/RankManager.java,6/f/6f4a5c6682242516f4c11114bc4fe2fc459ebefc
 a
 1src/main/java/ThunderCore/Utilities/Messages.java,0/0/00708bf16c5de35b1ce001f6cf049ed73b8f7257
 m
