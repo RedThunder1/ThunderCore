@@ -43,7 +43,7 @@ public class ChatListener implements Listener {
                 }
             }
         }
-        event.message(Component.text(RankManager.get().getPlayerRank(player).getPrefix() + player.getName() + ": " + ChatColor.RESET + event.message().asComponent()));
+        event.message(Component.text(RankManager.get().getPlayerRank(player).getPrefix() + player.getName() + ": " + ChatColor.RESET).append(event.originalMessage()));
     }
 
     public static Boolean getChatMuted() { return chatMuted; }

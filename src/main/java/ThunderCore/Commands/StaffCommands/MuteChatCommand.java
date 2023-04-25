@@ -16,7 +16,7 @@ public class MuteChatCommand implements CommandExecutor {
 
         if (!(sender instanceof Player player)) {
             sender.sendMessage(Messages.CONSOLECANTUSE);
-            return true;
+            return false;
         }
         if (!ThunderCore.get().isAdmin(player)) {
             player.sendMessage(Messages.NOPERMS);
@@ -29,7 +29,6 @@ public class MuteChatCommand implements CommandExecutor {
         }
         player.sendMessage(ChatColor.RED + "Chat has been muted!");
         ChatListener.setChatMuted(true);
-
-        return false;
+        return true;
     }
 }

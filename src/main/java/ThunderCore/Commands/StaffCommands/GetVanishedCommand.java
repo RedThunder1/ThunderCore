@@ -21,7 +21,7 @@ public class GetVanishedCommand implements CommandExecutor {
 
         if (!(sender instanceof Player player)) {
             sender.sendMessage(Messages.CONSOLECANTUSE);
-            return true;
+            return false;
         }
 
         if (!(ThunderCore.get().isModerator(player))) {

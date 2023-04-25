@@ -93,9 +93,9 @@ public class RankManager implements ThunderManager {
         return null;
     }
 
-    public void createFakePlayer(Player player, String rank, List<String> subperms, boolean muted) {
+    public void createFakePlayer(Player player, String rank, List<String> subperms) {
         ThunderCore.get().greenMsg("Created a fake player!");
-        fakePlayers.add(new FakePlayer(getRankByName(rank), player.getUniqueId(), subperms, muted));
+        fakePlayers.add(new FakePlayer(getRankByName(rank), player.getUniqueId(), subperms, false, false));
     }
 
     public boolean checkSubPerm(String s) {

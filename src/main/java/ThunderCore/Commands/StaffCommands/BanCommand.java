@@ -140,9 +140,6 @@ public class BanCommand implements CommandExecutor {
             Bukkit.getBanList(BanList.Type.NAME).addBan(toBan.getName(), bumper + reason.toString() + bumper, new Date(System.currentTimeMillis() + (long) day * hour * minute), null);
             toBan.kick(Component.text(reason.toString()));
         }
-
-
-
-        return false;
+        return true;
     }
 }

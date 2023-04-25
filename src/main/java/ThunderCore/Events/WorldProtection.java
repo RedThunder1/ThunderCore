@@ -66,7 +66,7 @@ public class WorldProtection implements Listener {
     @EventHandler
     public void entityDamageByEntity(EntityDamageByEntityEvent event) {
         if(event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
-            if (event.getDamager().getWorld() == Bukkit.getWorld("world")) {
+            if (event.getDamager().getWorld() == Bukkit.getWorld("lobby")) {
                 event.setCancelled(true);
             }
         }
@@ -95,7 +95,7 @@ public class WorldProtection implements Listener {
     @EventHandler
     public void damage(EntityDamageEvent event) {
         World world = event.getEntity().getWorld();
-        if (world == Bukkit.getWorld("world")) {
+        if (world == Bukkit.getWorld("lobby")) {
             event.setCancelled(true);
         }
     }
@@ -105,7 +105,7 @@ public class WorldProtection implements Listener {
     public void onDeath(PlayerDeathEvent event) {
         Player player = event.getEntity();
         if (player.getWorld().getName().equals("lobby")) {
-            Location location = new Location(Bukkit.getWorld("lobby"), 0.5, 71, 0.5);
+            Location location = new Location(Bukkit.getWorld("lobby"), 0.5, 72, 0.5);
             player.teleport(location);
         }
     }

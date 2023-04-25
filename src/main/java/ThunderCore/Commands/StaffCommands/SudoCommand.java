@@ -19,7 +19,7 @@ public class SudoCommand implements CommandExecutor {
 
         if (!(sender instanceof Player player)) {
             sender.sendMessage(Messages.CONSOLECANTUSE);
-            return true;
+            return false;
         }
 
         if (!(ThunderCore.get().isAdmin(player))) {
@@ -55,7 +55,7 @@ public class SudoCommand implements CommandExecutor {
         for (Player members : Bukkit.getOnlinePlayers()) {
             members.sendMessage("<" + p.getName() + "> " + msg);
         }
-        return false;
+        return true;
     }
 }
 

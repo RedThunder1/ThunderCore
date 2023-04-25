@@ -31,7 +31,7 @@ public class PlayerJoin implements Listener {
         player.setSaturation(20);
 
         if (RankManager.get().getFakePlayer(player) == null) {
-            RankManager.get().createFakePlayer(event.getPlayer(), "member", null, false);
+            RankManager.get().createFakePlayer(event.getPlayer(), "member", null);
         }
         player.displayName(Component.text(RankManager.get().getFakePlayer(player).getPlayerRank().getPrefix()));
         player.playerListName(Component.text(RankManager.get().getFakePlayer(player).getPlayerRank().getPrefix() + player.getName()));

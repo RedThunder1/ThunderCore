@@ -94,7 +94,7 @@ public class PartyCommand implements CommandExecutor {
                     return true;
                 }
 
-
+                //Remove player from party form
 
                 return true;
             }
@@ -107,6 +107,6 @@ public class PartyCommand implements CommandExecutor {
                 return false;
             }
         }
-        return false;
+        return true;
     }
 }

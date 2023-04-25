@@ -57,6 +57,7 @@ public class ThunderCore extends JavaPlugin {
         loadEvents();
         loadRunnables();
         loadWorlds();
+        loadCommands();
         greenMsg("ENABLED!");
     }
 
@@ -75,6 +76,9 @@ public class ThunderCore extends JavaPlugin {
         String[] banAlias = {"ipban"};
         String[] muteAlias = {"unmute"};
         String[] lobbyAlias = {"hub"};
+        String[] worldCreateAlias = {"wc"};
+        String[] worldDeleteAlias = {"wd"};
+        String[] worldTPAlias = {"wtp"};
         Objects.requireNonNull(this.getCommand("lobby")).setExecutor(new LobbyCommand());
         Objects.requireNonNull(this.getCommand("lobby")).setAliases(List.of(lobbyAlias));
         Objects.requireNonNull(this.getCommand("ban")).setExecutor(new BanCommand());
@@ -87,8 +91,11 @@ public class ThunderCore extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("getvanished")).setExecutor(new GetVanishedCommand());
         Objects.requireNonNull(this.getCommand("party")).setExecutor(new PartyCommand());
         Objects.requireNonNull(this.getCommand("worldcreate")).setExecutor(new CreateWorldCommand());
+        Objects.requireNonNull(this.getCommand("worldcreate")).setAliases(List.of(worldCreateAlias));
         Objects.requireNonNull(this.getCommand("worlddelete")).setExecutor(new DeleteWorldCommand());
+        Objects.requireNonNull(this.getCommand("worlddelete")).setAliases(List.of(worldDeleteAlias));
         Objects.requireNonNull(this.getCommand("worldtp")).setExecutor(new TpWorldCommand());
+        Objects.requireNonNull(this.getCommand("worldtp")).setAliases(List.of(worldTPAlias));
         greenMsg("Commands LOADED!");
     }
 

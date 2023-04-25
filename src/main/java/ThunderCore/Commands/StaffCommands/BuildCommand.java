@@ -14,14 +14,14 @@ import java.util.List;
 
 public class BuildCommand implements CommandExecutor {
 
-    private static ArrayList<Player> build = new ArrayList<>();
+    private static final ArrayList<Player> build = new ArrayList<>();
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
 
         if (!(sender instanceof Player player)) {
             sender.sendMessage(Messages.CONSOLECANTUSE);
-            return true;
+            return false;
         }
 
         if (!(ThunderCore.get().isBuilder(player) || ThunderCore.get().isAdmin(player))) {
@@ -39,6 +39,5 @@ public class BuildCommand implements CommandExecutor {
         player.sendMessage(ChatColor.RED + "Build mode Enabled");
         return true;
     }
-
     public static List<Player> getBuilders() { return build; }
 }

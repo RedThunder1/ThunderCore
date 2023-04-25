@@ -9,18 +9,22 @@ public class FakePlayer {
     private final UUID uuid;
     private List<String> subperms;
     private boolean muted;
+    private boolean inGame;
 
-    public FakePlayer(Ranks rank, UUID uuid, List<String> subperms, boolean muted) {
+    public FakePlayer(Ranks rank, UUID uuid, List<String> subperms, boolean muted, boolean inGame) {
         this.rank = rank;
         this.uuid = uuid;
         this.subperms = subperms;
         this.muted = muted;
+        this.inGame = inGame;
     }
 
     public Ranks getPlayerRank() { return rank; }
 
     public boolean isMuted() { return muted;}
     public void setMuted(boolean mute) { muted = mute; }
+    public boolean isInGame() { return inGame; }
+    public void setInGame(boolean inGame) { this.inGame = inGame; }
 
     public void setRank(Ranks ranks) { this.rank = ranks; }
 
