@@ -25,7 +25,7 @@ public class PlayerJoin implements Listener {
             event.joinMessage(Component.text(ChatColor.AQUA + player.getName() + " has joined the server for the first time!"));
         }
 
-        Location location = new Location(lobbyWorld, 0.5, 70, 0.5);
+        Location location = new Location(lobbyWorld, 0.5, 72, 0.5);
         player.teleport(location);
         player.setHealth(20);
         player.setSaturation(20);

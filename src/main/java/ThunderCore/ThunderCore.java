@@ -12,6 +12,7 @@ import ThunderCore.Events.PlayerLeave;
 import ThunderCore.Events.WorldProtection;
 import ThunderCore.Managers.RankManager.FakePlayer;
 import ThunderCore.Managers.RankManager.RankManager;
+import ThunderCore.Managers.SkyWarsManager.SkyWarsManager;
 import ThunderCore.Managers.ThunderManager;
 import ThunderCore.Utilities.AnnouncementMessages;
 import ThunderCore.Utilities.Time;
@@ -33,26 +34,27 @@ public class ThunderCore extends JavaPlugin {
     private static ThunderCore plugin;
     public static ThunderCore get() {return plugin;}
     private final ArrayList<ThunderManager> managers = new ArrayList<>();
-
     //TODO:
     // Priority:
-    //      Staff Commands
-    //      Player commands
-    //      Testing
+    //      Skywars mini game
+    //      Commands
     //      Party system
     // Secondary:
+    //      Replace ChatColor since its depreciated
     //      Test for bugs once a server is set up
-    //      Games
+    //      Other Games
     //      Friend system
     //      Timed Mute
+    // Bugs to fix:
+    //      Chat message not displayed properly
+    //      Some commands don't do anything (lobby, worldtp)
 
 
     @Override
     public void onEnable() {
         plugin = this;
-        loadCommands();
-        loadEvents();
         loadManagers();
+        loadEvents();
         loadRunnables();
         loadWorlds();
         greenMsg("ENABLED!");
@@ -101,6 +103,7 @@ public class ThunderCore extends JavaPlugin {
 
     public void loadManagers() {
         managers.add(new RankManager());
+        managers.add(new SkyWarsManager());
         greenMsg("Managers have been INITIALIZED");
         for(ThunderManager thunderManager : managers) {
             thunderManager.load();
@@ -115,8 +118,12 @@ public class ThunderCore extends JavaPlugin {
     }
 
     public void loadWorlds() {
-        for (World world : Bukkit.getWorlds()) {
-            WorldCreator worldCreator = new WorldCreator(world.getName());
+        ArrayList<String> worlds = new ArrayList<>();
+        worlds.add("world");
+        worlds.add("lobby");
+        greenMsg("Worlds Initialized!");
+        for (String world : worlds) {
+            WorldCreator worldCreator = new WorldCreator(world);
             worldCreator.createWorld();
         }
         greenMsg("Worlds LOADED!");

@@ -28,6 +28,7 @@ public class SkyWarsManager implements ThunderManager {
 
     public SkyWarsManager() {
         skyWarsManager = this;
+        /*
         if (!(mapTemplates.isEmpty())) {
             for (SkyWarsMapForm skyWarsMapForm : mapTemplates) {
                 if (skyWarsMapForm.getWorldType().equals("duel")) {
@@ -37,6 +38,7 @@ public class SkyWarsManager implements ThunderManager {
                 }
             }
         }
+         */
     }
 
     public void removeActiveGames(SkyWarsGameForm removeGame) { activeGames.remove(removeGame); }

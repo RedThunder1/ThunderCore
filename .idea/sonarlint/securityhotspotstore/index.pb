@@ -5,12 +5,8 @@ n
 >src/main/java/ThunderCore/Managers/RankManager/FakePlayer.java,e/7/e71009d64219adaf20c006613b68a9edcae276d7
 x
 Hsrc/main/java/ThunderCore/Commands/StaffCommands/GetVanishedCommand.java,8/6/86e7fff69dd4760a98418bf5a4729fcd07a015cb
-`
-0src/main/java/ThunderCore/Events/PlayerJoin.java,7/2/72c340c54414da0a198f0a6654522d818a99a320
 e
 5src/main/java/ThunderCore/Events/WorldProtection.java,8/f/8fac753e258ea95cfac95b5fd8c6cfbcbef4c015
-o
-?src/main/java/ThunderCore/Managers/GSONManager/GSONManager.java,5/f/5f4495e0e61dca5c8a94861a6ba06ef8640768e3
 a
 1src/main/java/ThunderCore/Events/PlayerLeave.java,0/d/0dc6bb9de3eeb96cf03acc83d072a3bafd81943d
 f
@@ -21,8 +17,6 @@ q
 Asrc/main/java/ThunderCore/Commands/StaffCommands/MuteCommand.java,4/d/4d88b73faaf17556cc2aa0f1b96d7c7a7c4555a3
 u
 Esrc/main/java/ThunderCore/Commands/StaffCommands/MuteChatCommand.java,1/2/124f95b97fb46af893191da0331053a0b8fa13b1
-b
-2src/main/java/ThunderCore/Events/ChatListener.java,d/c/dc27dbfa41a699d2f7352f0d0cd433c122667c02
 w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b/4/b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
 p
@@ -37,7 +31,3 @@ m
 =src/main/java/ThunderCore/Utilities/AnnouncementMessages.java,b/8/b85b8851f30fc790b9f85b1549053683568f1b48
 ]
 -src/main/java/ThunderCore/Utilities/Time.java,5/3/53cc077b4311910f91f3edcbbab7f165cbfd5103
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-d
-4src/main/java/ThunderCore/Commands/LobbyCommand.java,0\2\026f20a460c58965e6397a67884301aa9d35f5f5

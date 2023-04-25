@@ -6,6 +6,9 @@ author: RedThunderSpartan
 description: Core Plugin for my server
 
 commands:
+  lobby:
+    usage: </lobby>
+    description: Command for players to teleport to lobby.
   ban:
     usage: <ipban/ban (player) (time d|h|m) (reason)>
     description: Command for staff members to ban players.
