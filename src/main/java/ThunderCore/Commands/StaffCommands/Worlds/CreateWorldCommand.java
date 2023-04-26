@@ -37,7 +37,7 @@ public class CreateWorldCommand implements CommandExecutor {
         }
 
         createWorld(args, sender);
-        return false;
+        return true;
     }
 
     public void createWorld(String[] args, CommandSender sender) {

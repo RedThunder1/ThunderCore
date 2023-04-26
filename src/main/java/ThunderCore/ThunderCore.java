@@ -46,9 +46,7 @@ public class ThunderCore extends JavaPlugin {
     //      Friend system
     //      Timed Mute
     // Bugs to fix:
-    //      Chat message not displayed properly
-    //      Some commands don't do anything (lobby, worldtp)
-
+    //      Staff chat doesn't work correctly because we can't get substrings
 
     @Override
     public void onEnable() {
@@ -96,6 +94,7 @@ public class ThunderCore extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("worlddelete")).setAliases(List.of(worldDeleteAlias));
         Objects.requireNonNull(this.getCommand("worldtp")).setExecutor(new TpWorldCommand());
         Objects.requireNonNull(this.getCommand("worldtp")).setAliases(List.of(worldTPAlias));
+        Objects.requireNonNull(this.getCommand("setrank")).setExecutor(new SetRankCommand());
         greenMsg("Commands LOADED!");
     }
 

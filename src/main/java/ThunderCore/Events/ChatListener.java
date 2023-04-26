@@ -16,15 +16,13 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onMessage(AsyncChatEvent event) {
         Player player = event.getPlayer();
-        String message = event.originalMessage().toString();
+        Component message = event.originalMessage();
         FakePlayer fakePlayer = RankManager.get().getFakePlayer(player);
 
-        if (chatMuted) {
-            if (!ThunderCore.get().isModerator(player)) {
+        if (chatMuted && (!ThunderCore.get().isModerator(player))) {
                 player.sendMessage(Component.text(ChatColor.RED + "The chat is currently muted!"));
                 event.setCancelled(true);
                 return;
-            }
         }
 
         if (fakePlayer.isMuted()) {
@@ -33,8 +31,8 @@ public class ChatListener implements Listener {
             return;
         }
 
-        if (message.charAt(0) == '#' && ThunderCore.get().isStaff(player)) {
-            String msg1 = message.substring(1);
+        if (message.toString().charAt(0) == '#' && ThunderCore.get().isStaff(player)) {
+            String msg1 = message.toString().substring(1);
             event.setCancelled(true);
             for (Player staff : Bukkit.getOnlinePlayers()) {
                 if (ThunderCore.get().isStaff(staff)) {
@@ -43,7 +41,13 @@ public class ChatListener implements Listener {
                 }
             }
         }
-        event.message(Component.text(RankManager.get().getPlayerRank(player).getPrefix() + player.getName() + ": " + ChatColor.RESET).append(event.originalMessage()));
+
+        for (Player players : Bukkit.getOnlinePlayers()) {
+            if (players.getWorld().equals(player.getWorld())) {
+                players.sendMessage(Component.text(RankManager.get().getPlayerRank(player).getPrefix() + player.getName() + ": " + ChatColor.RESET).append(event.originalMessage()));
+            }
+        }
+        event.setCancelled(true);
     }
 
     public static Boolean getChatMuted() { return chatMuted; }

@@ -117,7 +117,6 @@ public class RankManager implements ThunderManager {
                 String fileContent = GSONManager.readFile(file);
                 this.fakePlayers.add(gson.fromJson(fileContent, FakePlayer.class));
             }
-            this.fakePlayers = gson.fromJson(Objects.requireNonNull(GSONManager.readFile(new File("PlayerRanks.json"))), fakePlayers.getClass());
         } catch(NullPointerException e) {
             ThunderCore.get().yellowMsg("THERE ARE NO PLAYER FILES!");
         }

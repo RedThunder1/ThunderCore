@@ -43,3 +43,6 @@ commands:
   worldtp:
     usage: </worldtp (world name)>
     description: Allows staff to tp between worlds
+  setrank:
+    usage: </setrank (player) (rank)>
+    description: Allows staff to set player ranks

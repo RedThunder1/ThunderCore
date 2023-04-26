@@ -11,9 +11,9 @@ a
 -src/main/java/ThunderCore/Utilities/Time.java,5/3/53cc077b4311910f91f3edcbbab7f165cbfd5103
 :
 
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 q
-Asrc/main/java/ThunderCore/Managers/PartyManager/PartyManager.java,7/1/715376bbc3ba6f0841e41b545a2a60ac9bf17bab
+Asrc/main/java/ThunderCore/Managers/PartyManager/PartyManager.java,7\1\715376bbc3ba6f0841e41b545a2a60ac9bf17bab
 p
 @src/main/java/ThunderCore/Managers/PartyManager/PartyInvite.java,8/3/835780e01359916408ddbdd56a6a508992bba2eb
 v
@@ -26,10 +26,6 @@ v
 Fsrc/main/java/ThunderCore/Managers/SkyWarsManager/SkyWarsTeamForm.java,5/d/5dd1650145cd09a1635da3549537c38c8d20969b
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-t
-Dsrc/main/java/ThunderCore/Commands/StaffCommands/SetRankCommand.java,b/4/b4d2676c1b03b957db46e7845938941f5f5bffd2
-d
-4src/main/java/ThunderCore/Commands/LobbyCommand.java,0/2/026f20a460c58965e6397a67884301aa9d35f5f5
 a
 1src/main/java/ThunderCore/Events/PlayerLeave.java,0/d/0dc6bb9de3eeb96cf03acc83d072a3bafd81943d
 k
@@ -44,3 +40,15 @@ Ysrc/main/java/ThunderCore/Managers/SkyWarsManager/GameManager/SkyWarsTeamGameMa
 Vsrc/main/java/ThunderCore/Managers/SkyWarsManager/SkyWarsGenerator/SpawnGenerator.java,c/5/c5c332bd73a0b34a6b3086cfaec9fd80159f86ca
 ‡
 Wsrc/main/java/ThunderCore/Managers/SkyWarsManager/SkyWarsGenerator/CenterGenerator.java,b/a/ba7df12b74d9c9728ed755abc4c164e7a9d53324
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+o
+?src/main/java/ThunderCore/Managers/GSONManager/GSONManager.java,5\f\5f4495e0e61dca5c8a94861a6ba06ef8640768e3
+`
+0src/main/java/ThunderCore/Events/PlayerJoin.java,7\2\72c340c54414da0a198f0a6654522d818a99a320
+u
+Esrc/main/java/ThunderCore/Managers/SkyWarsManager/SkyWarsManager.java,6\3\6334fd2a487b759c9a67970845a4d96caf71aeb6
+
+Osrc/main/java/ThunderCore/Commands/StaffCommands/Worlds/DeleteWorldCommand.java,0\6\06c4113c351c99df995f26034ef705fdc9ef9031
+{
+Ksrc/main/java/ThunderCore/Commands/StaffCommands/Worlds/TpWorldCommand.java,f\9\f9bfcbc5efae6edfa99b4523e58062fc1390e669

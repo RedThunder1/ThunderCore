@@ -2,6 +2,7 @@ package ThunderCore.Commands.StaffCommands;
 
 import ThunderCore.ThunderCore;
 import ThunderCore.Utilities.Messages;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -29,12 +30,12 @@ public class VanishCommand implements CommandExecutor {
         if (vanished.contains(player)) {
             vanished.remove(player);
             player.showPlayer(ThunderCore.get(), player);
+            player.sendMessage(ChatColor.GREEN + "You have unvanished!");
             return true;
         }
-
         vanished.add(player);
         player.hidePlayer(ThunderCore.get(), player);
-
+        player.sendMessage(ChatColor.GREEN + "You have vanished!");
         return true;
     }
 
