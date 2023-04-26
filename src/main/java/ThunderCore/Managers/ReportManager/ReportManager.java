@@ -1,7 +1,6 @@
 package ThunderCore.Managers.ReportManager;
 
-import ThunderCore.Managers.GSONManager.GSONManager;
-import ThunderCore.Managers.RankManager.FakePlayer;
+import ThunderCore.Managers.FileManager.FileManager;
 import ThunderCore.Managers.ThunderManager;
 import ThunderCore.ThunderCore;
 import com.google.gson.Gson;
@@ -74,10 +73,10 @@ public class ReportManager implements ThunderManager {
             File folder = new File("ThunderCore/Reports/");
             File[] listOfFiles = folder.listFiles();
             for (File file : Objects.requireNonNull(listOfFiles)) {
-                String fileContent = GSONManager.readFile(file);
+                String fileContent = FileManager.readFile(file);
                 reports.add(gson.fromJson(fileContent, ReportRecord.class));
             }
-            reports = gson.fromJson(Objects.requireNonNull(GSONManager.readFile(new File("Reports.json"))), reports.getClass());
+            reports = gson.fromJson(Objects.requireNonNull(FileManager.readFile(new File("Reports.json"))), reports.getClass());
         } catch(NullPointerException e) {
             ThunderCore.get().yellowMsg("There are no report files!");
         }
@@ -88,7 +87,7 @@ public class ReportManager implements ThunderManager {
     public void save() {
         for (ReportRecord report : reports) {
             String id = report.id().toString();
-            GSONManager.writeFile(new File("ThunderCore/Reports/Reports.json"), gson.toJson(report));
+            FileManager.writeFile(new File("ThunderCore/Reports/Reports.json"), gson.toJson(report));
         }
         ThunderCore.get().greenMsg("Saved Reports!");
     }

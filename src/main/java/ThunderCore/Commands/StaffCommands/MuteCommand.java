@@ -38,6 +38,10 @@ public class MuteCommand implements CommandExecutor {
         Player muted = Bukkit.getPlayer(args[0]);
         FakePlayer mutedFakePlayer = RankManager.get().getFakePlayer(muted);
         assert muted != null;
+        if (RankManager.get().getPlayerRank(player).getPermLevel() <= RankManager.get().getPlayerRank(muted).getPermLevel()) {
+            player.sendMessage(ChatColor.RED + "You cannot mute that player!");
+            return true;
+        }
 
         if (label.equals("mute")) {
             if (mutedFakePlayer.isMuted()) {

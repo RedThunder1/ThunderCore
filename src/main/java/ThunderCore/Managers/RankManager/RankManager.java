@@ -1,6 +1,6 @@
 package ThunderCore.Managers.RankManager;
 
-import ThunderCore.Managers.GSONManager.GSONManager;
+import ThunderCore.Managers.FileManager.FileManager;
 import ThunderCore.Managers.ThunderManager;
 import ThunderCore.ThunderCore;
 import com.google.gson.Gson;
@@ -114,7 +114,7 @@ public class RankManager implements ThunderManager {
             File folder = new File("ThunderCore/FakePlayers/");
             File[] listOfFiles = folder.listFiles();
             for (File file : Objects.requireNonNull(listOfFiles)) {
-                String fileContent = GSONManager.readFile(file);
+                String fileContent = FileManager.readFile(file);
                 this.fakePlayers.add(gson.fromJson(fileContent, FakePlayer.class));
             }
         } catch(NullPointerException e) {
@@ -127,7 +127,7 @@ public class RankManager implements ThunderManager {
     public void save() {
         for (FakePlayer fakePlayer : this.fakePlayers) {
             String id = fakePlayer.getUUID().toString();
-            GSONManager.writeFile(new File("ThunderCore/FakePlayers/" + id + ".json"), gson.toJson(fakePlayer));
+            FileManager.writeFile(new File("ThunderCore/FakePlayers/" + id + ".json"), gson.toJson(fakePlayer));
         }
         ThunderCore.get().greenMsg("Saved Player Ranks!");
     }

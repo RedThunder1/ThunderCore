@@ -1,5 +1,6 @@
 package ThunderCore.Commands.StaffCommands;
 
+import ThunderCore.Managers.RankManager.RankManager;
 import ThunderCore.ThunderCore;
 import ThunderCore.Utilities.Messages;
 import org.bukkit.Bukkit;
@@ -38,6 +39,12 @@ public class SudoCommand implements CommandExecutor {
         }
         Player p = Bukkit.getPlayer(args[0]);
         assert p != null;
+
+        if (RankManager.get().getPlayerRank(player).getPermLevel() <= RankManager.get().getPlayerRank(p).getPermLevel()) {
+            player.sendMessage(ChatColor.RED + "You cannot sudo that player!");
+            return true;
+        }
+
         int pLenght = p.getName().length();
 
         if (args[1].isBlank()) {

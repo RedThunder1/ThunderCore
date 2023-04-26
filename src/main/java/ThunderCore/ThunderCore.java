@@ -12,7 +12,7 @@ import ThunderCore.Events.PlayerLeave;
 import ThunderCore.Events.WorldProtection;
 import ThunderCore.Managers.RankManager.FakePlayer;
 import ThunderCore.Managers.RankManager.RankManager;
-import ThunderCore.Managers.SkyWarsManager.SkyWarsManager;
+import ThunderCore.Managers.GameManagers.BedWarsManager.BedWarsManager;
 import ThunderCore.Managers.ThunderManager;
 import ThunderCore.Utilities.AnnouncementMessages;
 import ThunderCore.Utilities.Time;
@@ -95,6 +95,7 @@ public class ThunderCore extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("worldtp")).setExecutor(new TpWorldCommand());
         Objects.requireNonNull(this.getCommand("worldtp")).setAliases(List.of(worldTPAlias));
         Objects.requireNonNull(this.getCommand("setrank")).setExecutor(new SetRankCommand());
+        Objects.requireNonNull(this.getCommand("sudo")).setExecutor(new SudoCommand());
         greenMsg("Commands LOADED!");
     }
 
@@ -109,7 +110,7 @@ public class ThunderCore extends JavaPlugin {
 
     public void loadManagers() {
         managers.add(new RankManager());
-        managers.add(new SkyWarsManager());
+        managers.add(new BedWarsManager());
         greenMsg("Managers have been INITIALIZED");
         for(ThunderManager thunderManager : managers) {
             thunderManager.load();
@@ -125,8 +126,8 @@ public class ThunderCore extends JavaPlugin {
 
     public void loadWorlds() {
         ArrayList<String> worlds = new ArrayList<>();
-        worlds.add("world");
         worlds.add("lobby");
+        worlds.add("lobbytemplate");
         greenMsg("Worlds Initialized!");
         for (String world : worlds) {
             WorldCreator worldCreator = new WorldCreator(world);
@@ -137,7 +138,9 @@ public class ThunderCore extends JavaPlugin {
 
     public void greenMsg(String text) { console.sendMessage(Component.text(thunderName + ChatColor.GREEN + text)); }
 
-    public void redMsg(String text) { console.sendMessage(Component.text(thunderName + ChatColor.RED + text)); }
+    public void redMsg(String text) {
+        console.sendMessage(Component.text(thunderName + ChatColor.RED + text));
+    }
 
     public void yellowMsg(String text) { console.sendMessage(Component.text(thunderName + ChatColor.YELLOW + text)); }
 
@@ -171,5 +174,4 @@ public class ThunderCore extends JavaPlugin {
             return fakePlayer.getPlayerRank().equals(RankManager.get().getRankByName("builder"));
         } else return isAdmin(player);
     }
-
 }

@@ -1,4 +1,4 @@
-package ThunderCore.Managers.GSONManager;
+package ThunderCore.Managers.FileManager;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class GSONManager {
+public class FileManager {
 
     public static String readFile(File fileName) {
         try {

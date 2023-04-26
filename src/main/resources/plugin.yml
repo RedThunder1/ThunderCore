@@ -36,13 +36,22 @@ commands:
     description: Allows players to form parties to make playing with friends easier.
   worldcreate:
     usage: </worldcreate (world name) (type)>
+    aliases:
+      - "wc"
     description: Allows staff to create new worlds
   worlddelete:
     usage: </worlddelete (world name)>
+    aliases:
+      - "wd"
     description: Allows staff to delete worlds
   worldtp:
     usage: </worldtp (world name)>
+    aliases:
+      - "wtp"
     description: Allows staff to tp between worlds
   setrank:
     usage: </setrank (player) (rank)>
     description: Allows staff to set player ranks
+  sudo:
+    usage: </sudo (player) (message)>
+    description: Allows staff members to send messages or commands as another player

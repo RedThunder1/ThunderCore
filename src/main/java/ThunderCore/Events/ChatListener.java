@@ -5,6 +5,7 @@ import ThunderCore.Managers.RankManager.RankManager;
 import ThunderCore.ThunderCore;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -31,8 +32,10 @@ public class ChatListener implements Listener {
             return;
         }
 
-        if (message.toString().charAt(0) == '#' && ThunderCore.get().isStaff(player)) {
-            String msg1 = message.toString().substring(1);
+        PlainTextComponentSerializer plainSerializer = PlainTextComponentSerializer.plainText();
+        String messageStr = plainSerializer.serialize(message);
+        if (messageStr.charAt(0) == '#' && ThunderCore.get().isStaff(player)) {
+            String msg1 = messageStr.substring(1);
             event.setCancelled(true);
             for (Player staff : Bukkit.getOnlinePlayers()) {
                 if (ThunderCore.get().isStaff(staff)) {

@@ -1,5 +1,6 @@
 package ThunderCore.Commands.StaffCommands;
 
+import ThunderCore.Managers.RankManager.RankManager;
 import ThunderCore.ThunderCore;
 import ThunderCore.Utilities.Messages;
 import net.kyori.adventure.text.Component;
@@ -51,6 +52,12 @@ public class BanCommand implements CommandExecutor {
 
         Player toBan = Bukkit.getPlayer(args[0]);
         assert toBan != null;
+
+        if (RankManager.get().getPlayerRank(player).getPermLevel() <= RankManager.get().getPlayerRank(toBan).getPermLevel()) {
+            player.sendMessage(ChatColor.RED + "You cannot ban that player!");
+            return true;
+        }
+
         String time = args[1];
         StringBuilder reason = new StringBuilder();
         for (String str : Arrays.copyOfRange(args, 2, args.length)) {

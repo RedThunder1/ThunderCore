@@ -1,4 +1,4 @@
-package ThunderCore.Managers.SkyWarsManager.SkyWarsGenerator;
+package ThunderCore.Managers.GameManagers.BedWarsManager.BedWarsGenerator;
 
 import ThunderCore.ThunderCore;
 import org.bukkit.Location;
@@ -13,11 +13,17 @@ public class SpawnGenerator {
     private boolean spawnItems = true;
     private float defaultIronSpawnRate = 2f;
     private float defaultGoldSpawnRate = 10f;
+    private final World world;
+    private final Location location;
     public SpawnGenerator(Location location) {
+        world = location.getWorld();
+        this.location = location;
 
+    }
+
+    public void startSpawning() {
         float[] ironSpawnRate = {2f};
         float[] goldSpawnRate = {10f};
-        World world = location.getWorld();
         ItemStack iron = new ItemStack(Material.IRON_INGOT);
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
         new BukkitRunnable() {
